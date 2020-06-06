@@ -1,22 +1,17 @@
 package com.sagarandcompany.FirstDemo.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
 public class Employee {
+    private String id;
     private String name;
     private String email;
+    private Address address;
+    private List<Task> taskList;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }
