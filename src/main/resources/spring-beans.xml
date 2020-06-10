@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       default-init-method=""
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="accountService1" class="com.sagarandcompany.FirstDemo.service.AccountService" scope="singleton">
+    <bean name="accountService1" init-method="init" class="com.sagarandcompany.FirstDemo.service.AccountService">
         <property name="employeeService" ref="employeeService"/>
-
     </bean>
 
     <!--<bean name="foo" class="com.sagarandcompany.FirstDemo.service.Foo">-->
-        <!--<constructor-arg ref="zoo"></constructor-arg>-->
+    <!--<constructor-arg ref="zoo"></constructor-arg>-->
     <!--</bean>-->
     <!--<bean name="zoo" class="com.sagarandcompany.FirstDemo.service.Zoo">-->
-        <!--<constructor-arg ref="foo"></constructor-arg>-->
+    <!--<constructor-arg ref="foo"></constructor-arg>-->
     <!--</bean>-->
 
 
-    <bean name="accountService2" class="com.sagarandcompany.FirstDemo.service.AccountService" scope="singleton">
-    <property name="employeeService" ref="employeeService"/>
-    </bean>
+    <!--<bean  name="accountService2" class="com.sagarandcompany.FirstDemo.service.AccountService" scope="singleton">-->
+    <!--<property name="employeeService" ref="employeeService"/>-->
+    <!--</bean>-->
 
     <!--<bean name="accountService3" class="com.sagarandcompany.FirstDemo.service.AccountService" scope="singleton">-->
     <!--<property name="employeeService" ref="employeeService"/>-->

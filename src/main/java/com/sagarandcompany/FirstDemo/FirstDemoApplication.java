@@ -11,12 +11,12 @@ import org.springframework.context.annotation.ImportResource;
 public class FirstDemoApplication {
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(FirstDemoApplication.class, args);
-        AccountService accountService1 = (AccountService)applicationContext.getBean("accountService1");
-        accountService1.getEmployeeService();
-
-
-        AccountService accountService2 = (AccountService)applicationContext.getBean("accountService2");
-        accountService2.getEmployeeService();
+//        AccountService accountService1 = (AccountService) applicationContext.getBean("accountService1");
+//        accountService1.getEmployeeService();
+//
+//
+//        AccountService accountService2 = (AccountService) applicationContext.getBean("accountService2");
+//        accountService2.getEmployeeService();
 
 
 //        AccountService accountService3 = applicationContext.getBean(AccountService.class);
