@@ -12,4 +12,5 @@ public class HomeController {
         modelAndView.addObject("name", "Shrisha");
         return modelAndView;
     }
+
 }

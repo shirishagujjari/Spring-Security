@@ -1,176 +1,98 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
-        <!-- Float links to the right. Hide them on small screens -->
-        <div class="w3-right w3-hide-small">
-            <a href="#projects" class="w3-bar-item w3-button">Projects</a>
-            <a href="#about" class="w3-bar-item w3-button">About</a>
-            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-        </div>
-    </div>
-</div>
+<form action="/emp/save" method="post">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="/w3images/architect.jpg" alt="Architecture" width="1500" height="800">
-    <div class="w3-display-middle w3-margin-top w3-center">
-        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span> <span
-                class="w3-hide-small w3-text-light-grey">Architects</span></h1>
-    </div>
-</header>
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Name" name="name" id="name" required>
 
-    <!-- Project Section -->
-    <div class="w3-container w3-padding-32" id="projects">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">${name}</h3>
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Address" name="address" id="address" required>
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+        <button type="submit" class="registerbtn">Register</button>
     </div>
 
-    <div class="w3-row-padding">
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-                <img src="/w3images/house5.jpg" alt="House" style="width:100%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-                <img src="/w3images/house2.jpg" alt="House" style="width:100%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-                <img src="/w3images/house3.jpg" alt="House" style="width:100%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-                <img src="/w3images/house4.jpg" alt="House" style="width:100%"/>
-            </div>
-        </div>
+    <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
     </div>
-
-    <div class="w3-row-padding">
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Summer House</div>
-                <img src="/w3images/house2.jpg" alt="House" style="width:99%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Brick House</div>
-                <img src="/w3images/house5.jpg" alt="House" style="width:99%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Renovated</div>
-                <img src="/w3images/house4.jpg" alt="House" style="width:99%"/>
-            </div>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">Barn House</div>
-                <img src="/w3images/house3.jpg" alt="House" style="width:99%"/>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Section -->
-    <div class="w3-container w3-padding-32" id="about">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-    </div>
-
-    <div class="w3-row-padding w3-grayscale">
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="/w3images/team2.jpg" alt="John" style="width:100%"/>
-            <h3>John Doe</h3>
-            <p class="w3-opacity">CEO & Founder</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p>
-                <button class="w3-button w3-light-grey w3-block">Contact</button>
-            </p>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="/w3images/team1.jpg" alt="Jane" style="width:100%"/>
-            <h3>Jane Doe</h3>
-            <p class="w3-opacity">Architect</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p>
-                <button class="w3-button w3-light-grey w3-block">Contact</button>
-            </p>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="/w3images/team3.jpg" alt="Mike" style="width:100%"/>
-            <h3>Mike Ross</h3>
-            <p class="w3-opacity">Architect</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p>
-                <button class="w3-button w3-light-grey w3-block">Contact</button>
-            </p>
-        </div>
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="/w3images/team4.jpg" alt="Dan" style="width:100%"/>
-            <h3>Dan Star</h3>
-            <p class="w3-opacity">Architect</p>
-            <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-            <p>
-                <button class="w3-button w3-light-grey w3-block">Contact</button>
-            </p>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div class="w3-container w3-padding-32" id="contact">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-        <p>Lets get in touch and talk about your next project.</p>
-        <form action="/action_page.php" target="_blank">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
-            <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
-            <button class="w3-button w3-black w3-section" type="submit">
-                <i class="fa fa-paper-plane"></i> SEND MESSAGE
-            </button>
-        </form>
-    </div>
-
-    <!-- Image of location/map -->
-    <div class="w3-container">
-        <img src="/w3images/map.jpg" class="w3-image" style="width:100%"/>
-    </div>
-
-    <!-- End page content -->
-</div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                     class="w3-hover-text-green">w3.css</a></p>
-</footer>
+</form>
 
 </body>
 </html>
