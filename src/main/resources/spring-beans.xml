@@ -3,15 +3,4 @@
        default-init-method=""
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean name="InterceptorRegistration" class="com.sagarandcompany.FirstDemo.config.InterceptorRegistration">
-
-    </bean>
-
-    <bean name="employee" class="com.sagarandcompany.FirstDemo.domain.Employee"/>
-
-    <bean name="employeeService" class="com.sagarandcompany.FirstDemo.service.EmployeeService">
-        <lookup-method name="employee" bean="employee"></lookup-method>
-    </bean>
-    <!--<bean name="regularEmp" class="com.sagarandcompany.FirstDemo.domain.RegularEmployee" parent="employee"/>-->
-    <!--<bean name="privateEmp" class="com.sagarandcompany.FirstDemo.domain.PrivateEmployee" parent="employee"/>-->
 </beans>
