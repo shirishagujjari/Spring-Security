@@ -1,6 +1,7 @@
 package com.sagarandcompany.FirstDemo.controller;
 
 import com.sagarandcompany.FirstDemo.domain.Employee;
+import com.sagarandcompany.FirstDemo.domain.PrivateEmployee;
 import com.sagarandcompany.FirstDemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,8 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping("/save")
-    public ModelAndView save(@ModelAttribute Employee employee) {
+    public ModelAndView save(@ModelAttribute PrivateEmployee employee) {
+        employee.setTime(30);
         Employee dbEmp = employeeService.save(employee);
         ModelAndView modelAndView = new ModelAndView("success");
         return modelAndView;
