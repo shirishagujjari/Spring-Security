@@ -1,16 +1,17 @@
 package com.sagarandcompany.FirstDemo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +20,11 @@ public class Employee {
     private String email;
     private String address;
     private Integer salary;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Department department;
+
+    public Employee(String name, Integer salary) {
+        this.name = name;
+        this.salary = salary;
+    }
 }

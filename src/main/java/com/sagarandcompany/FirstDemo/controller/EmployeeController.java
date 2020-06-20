@@ -17,7 +17,7 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping("/save")
-    public ModelAndView save(@ModelAttribute Employee employee) {
+    public ModelAndView save(@RequestBody Employee employee) {
         Employee dbEmp = employeeService.save(employee);
         ModelAndView modelAndView = new ModelAndView("success");
         return modelAndView;
@@ -64,9 +64,59 @@ public class EmployeeController {
     public List<Employee> findAllByNameStartingWith(@RequestParam(value = "name") String name) {
         return employeeService.search4(name);
     }
+
     @GetMapping(value = "/search6", produces = "application/json")
     @ResponseBody
     public List<Employee> search6(@RequestParam(value = "name") String name) {
         return employeeService.search6(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo1", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo1(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo1(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo2", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo2(@RequestParam(value = "name") String name,
+                                        @RequestParam("salary") Integer salary) {
+        return employeeService.criteriaDemo2(name, salary);
+    }
+
+    @GetMapping(value = "/criteriaDemo3", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo3(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo3(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo4", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo4(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo4(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo5", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo5(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo5(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo6", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo6(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo6(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo7", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo7(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo7(name);
+    }
+
+    @GetMapping(value = "/criteriaDemo8", produces = "application/json")
+    @ResponseBody
+    public List<Employee> criteriaDemo8(@RequestParam(value = "name") String name) {
+        return employeeService.criteriaDemo8(name);
     }
 }
