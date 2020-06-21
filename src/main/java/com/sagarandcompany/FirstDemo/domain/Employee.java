@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Cacheable
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

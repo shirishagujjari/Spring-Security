@@ -65,6 +65,12 @@ public class EmployeeService {
     }
 
     public Employee get(Long id) {
+        employeeRepository.findById(id).get();
+        employeeRepository.findById(id).get();
+        employeeRepository.findById(id).get();
+        employeeRepository.findById(id).get();
+        employeeRepository.findById(id).get();
+        employeeRepository.findById(id).get();
         return employeeRepository.findById(id).get();
     }
 
@@ -182,6 +188,7 @@ public class EmployeeService {
         Query query = entityManager.createQuery(criteriaQuery);
         return query.getResultList();
     }
+
     //select min(salary) from employee
     public List<Employee> criteriaDemo9(String name) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
