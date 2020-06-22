@@ -21,11 +21,6 @@ public class Employee {
     private String email;
     private String address;
     private Integer salary;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Department department;
-
-    public Employee(String name, Integer salary) {
-        this.name = name;
-        this.salary = salary;
-    }
+    @Version
+    private Integer version;
 }
