@@ -23,4 +23,6 @@ public class Employee {
     private Integer salary;
     @Version
     private Integer version;
+    @OneToOne
+    private Department department;
 }

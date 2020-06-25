@@ -13,4 +13,10 @@ public class HomeController {
         return modelAndView;
     }
 
+    @GetMapping("/test")
+    public ModelAndView test() {
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("name", "Testing------------");
+        return modelAndView;
+    }
 }

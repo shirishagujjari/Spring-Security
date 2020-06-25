@@ -21,7 +21,18 @@ public class EmployeeService {
 
     public Employee save(Employee employee) {
         Session session = entityManager.unwrap(Session.class);
-        session.save(employee);
+        session.getTransaction().begin();
+        Employee dbEmp = session.find(Employee.class, employee.getId());
+        dbEmp.setName(employee.getName());
+        dbEmp.setEmail(employee.getName());
+        dbEmp.setSalary(6578);
+        session.update(dbEmp);
+        session.flush();
+
+        //detaached object
+        dbEmp.setEmail("Sagar@gmail.com");
+        session.merge(dbEmp);
+        session.getTransaction().commit();
         return employee;
     }
 

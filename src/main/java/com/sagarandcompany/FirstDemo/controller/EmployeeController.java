@@ -1,5 +1,6 @@
 package com.sagarandcompany.FirstDemo.controller;
 
+import com.sagarandcompany.FirstDemo.domain.Department;
 import com.sagarandcompany.FirstDemo.domain.Employee;
 import com.sagarandcompany.FirstDemo.service.EmployeeService;
 import com.sagarandcompany.FirstDemo.util.ResponseDTO;
@@ -16,7 +17,11 @@ public class EmployeeController {
 
     @PostMapping("/save")
     public ModelAndView save(@ModelAttribute Employee employee) {
-        Employee dbEmp = employeeService.save(employee);
+//        Department department = new Department();
+//        department.setName("Computer");
+//        employee.setDepartment(department);
+        Employee dbEmp = employeeService.
+                save(employee);
         ModelAndView modelAndView = new ModelAndView("success");
         return modelAndView;
     }
