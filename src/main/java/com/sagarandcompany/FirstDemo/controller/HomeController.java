@@ -6,6 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
+    @GetMapping("/admin/home")
+    public ModelAndView getSecurePage(){
+        return new ModelAndView("admin");
+    }
     @GetMapping("/home")
     public ModelAndView getHomePage() {
         ModelAndView modelAndView = new ModelAndView("index");
