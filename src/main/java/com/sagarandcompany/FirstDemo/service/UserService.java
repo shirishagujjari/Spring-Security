@@ -18,7 +18,7 @@ public class UserService {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @PostConstruct
+   /* @PostConstruct
     public void init() {
         Role role = Role.builder().name("ADMIN").build();
         Set<Role> roles = new HashSet<>();
@@ -31,5 +31,5 @@ public class UserService {
                 .roles(roles)
                 .build();
         userRepository.save(user);
-    }
+    }*/
 }

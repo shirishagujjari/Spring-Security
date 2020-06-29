@@ -5,31 +5,48 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    DataSource dataSource;
+    /*@Autowired
+    DataSource dataSource;*/
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        BasicAuthenticationEntryPoint basicAuthenticationEntryPoint = new BasicAuthenticationEntryPoint();
-//        basicAuthenticationEntryPoint.setRealmName("test");
-//
-//        http.authorizeRequests()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .httpBasic()
-//                .authenticationEntryPoint(basicAuthenticationEntryPoint);
-//    }
+
+    @Override
+   protected void configure(HttpSecurity http) throws Exception {
+        BasicAuthenticationEntryPoint basicAuthenticationEntryPoint = new BasicAuthenticationEntryPoint();
+        basicAuthenticationEntryPoint.setRealmName("test");
+
+        http.authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .httpBasic()
+                .authenticationEntryPoint(basicAuthenticationEntryPoint);
+    }
+
+   /* @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        PasswordEncoder passwordEncoder = passwordEncoder();
+        auth.
+                inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser("sagar")
+                .password(passwordEncoder.encode("test"))
+                .roles("ADMIN","USER");
+    }*/
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
@@ -57,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .authenticationEntryPoint(basicAuthenticationEntryPoint);
 //    }
 
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
                 authorizeRequests()
@@ -73,24 +90,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/").and().exceptionHandling()
                 .accessDeniedPage("/access-denied");
-    }
+    }*/
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
 
-    //    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        PasswordEncoder passwordEncoder = passwordEncoder();
-//        auth.
-//                inMemoryAuthentication()
-//                .passwordEncoder(passwordEncoder)
-//                .withUser("sagar")
-//                .password(passwordEncoder.encode("test"))
-//                .roles("ADMIN","USER");
-//    }
-    @Autowired
+
+    /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = passwordEncoder();
         auth.
@@ -99,12 +103,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("select u.username, r.name from user u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.username=?")
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
                 .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
-    }
+    }*/
 }
