@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(basicAuthenticationEntryPoint);
     }
 
-   /* @Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = passwordEncoder();
         auth.
@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("sagar")
                 .password(passwordEncoder.encode("test"))
                 .roles("ADMIN","USER");
-    }*/
+    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
