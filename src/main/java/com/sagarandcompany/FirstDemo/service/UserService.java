@@ -1,35 +1,32 @@
 package com.sagarandcompany.FirstDemo.service;
 
-import com.sagarandcompany.FirstDemo.domain.Role;
 import com.sagarandcompany.FirstDemo.domain.User;
 import com.sagarandcompany.FirstDemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 
 @Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
     @Autowired
-    BCryptPasswordEncoder bCryptPasswordEncoder;
+    PasswordEncoder passwordEncoder;
 
     @PostConstruct
     public void init() {
-        Role role = Role.builder().name("ADMIN").build();
-        Set<Role> roles = new HashSet<>();
-        roles.add(role);
-        User user = User.builder()
-                .username("sagar")
-                .active(1)
-                .password(bCryptPasswordEncoder.encode("java"))
-                .firstName("sagar shankhala")
-                .roles(roles)
-                .build();
-        userRepository.save(user);
+        if (userRepository.count() == 0) {
+            User user = User.builder()
+                    .username("sagarmal624@gmail.com")
+                    .password(this.passwordEncoder.encode("India@2020"))
+                    .name("Sagar")
+                    .roles(new HashSet<String>(Arrays.asList("ROLE_SUPER_ADMIN")))
+                    .build();
+            userRepository.save(user);
+        }
     }
 }
