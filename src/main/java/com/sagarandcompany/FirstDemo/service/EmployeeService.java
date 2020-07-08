@@ -5,6 +5,8 @@ import com.sagarandcompany.FirstDemo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService {
 
@@ -17,5 +19,9 @@ public class EmployeeService {
 
     public Employee get(Long id) {
         return employeeRepository.findById(id).get();
+    }
+
+    public List<Employee> getAll() {
+        return employeeRepository.findAll();
     }
 }
