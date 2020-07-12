@@ -14,7 +14,7 @@ public class AccountController {
     private String name;
 
 
-    @GetMapping("/account/get/{id}")
+    @GetMapping("/get/{id}")
     public Map<String, String> get(@PathVariable String id) {
         Map<String, String> map = new HashMap<>();
         map.put("id", id);
